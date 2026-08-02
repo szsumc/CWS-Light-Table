@@ -1,0 +1,17 @@
+{
+  "name": "cws-light-table",
+  "version": "1.1.1",
+  "description": "A lightweight single-sheet CWS HTML table editor with import, export, filtering, printing, and standalone save.",
+  "license": "MIT",
+  "author": "Mac Su",
+  "homepage": "http://cws-light-table-docs.macsocloud.com/",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-standalone-template.mjs",
+    "dev": "node scripts/dev-server.mjs",
+    "start": "node scripts/dev-server.mjs"
+  },
+  "dependencies": {
+    "xlsx": "^0.18.5"
+  }
+}

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CWS Light Table</title>
+    <link rel="stylesheet" href="./src/styles.css?v=20260619-2" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <nav class="menu-bar" aria-label="Application menu">
+        <div class="menu-tabs">
+          <button
+            id="fileMenuButton"
+            class="menu-tab"
+            type="button"
+            data-menu-key="file"
+            aria-haspopup="true"
+            aria-controls="appMenu"
+            aria-expanded="false"
+          >
+            File
+          </button>
+          <button
+            id="editMenuButton"
+            class="menu-tab"
+            type="button"
+            data-menu-key="edit"
+            aria-haspopup="true"
+            aria-controls="appMenu"
+            aria-expanded="false"
+          >
+            Edit
+          </button>
+          <button
+            id="searchMenuButton"
+            class="menu-tab"
+            type="button"
+            data-menu-key="search"
+            aria-haspopup="true"
+            aria-controls="appMenu"
+            aria-expanded="false"
+          >
+            Search
+          </button>
+          <button
+            id="dataMenuButton"
+            class="menu-tab"
+            type="button"
+            data-menu-key="data"
+            aria-haspopup="true"
+            aria-controls="appMenu"
+            aria-expanded="false"
+          >
+            Data
+          </button>
+          <button
+            id="viewMenuButton"
+            class="menu-tab"
+            type="button"
+            data-menu-key="view"
+            aria-haspopup="true"
+            aria-controls="appMenu"
+            aria-expanded="false"
+          >
+            View
+          </button>
+          <button
+            id="optionMenuButton"
+            class="menu-tab"
+            type="button"
+            data-menu-key="option"
+            aria-haspopup="true"
+            aria-controls="appMenu"
+            aria-expanded="false"
+          >
+            Option
+          </button>
+          <button
+            id="helpMenuButton"
+            class="menu-tab"
+            type="button"
+            data-menu-key="help"
+            aria-haspopup="true"
+            aria-controls="appMenu"
+            aria-expanded="false"
+          >
+            Help
+          </button>
+        </div>
+
+        <div id="appMenu" class="menu-dropdown hidden" role="menu" aria-labelledby="fileMenuButton">
+          <button class="menu-item" type="button" role="menuitem">Open CWS HTML</button>
+        </div>
+
+        <input id="openFileInput" type="file" accept=".html,.htm" hidden />
+        <input id="importFileInput" type="file" accept=".xlsx,.xlsm,.xls,.csv,.tsv,.txt,.json,.xml" hidden />
+      </nav>
+
+      <div id="iconToolbar" class="icon-toolbar" role="toolbar" aria-label="Quick actions"></div>
+
+      <main class="workspace">
+        <section id="sheetPickerPanel" class="sheet-picker-bar hidden">
+          <p class="panel-note">This file has multiple sheets. Pick one sheet to load into the lightweight editor.</p>
+          <div class="sheet-picker-row">
+            <select id="sheetSelect"></select>
+            <button id="loadSheetButton" class="button button-primary" type="button">Load Selected Sheet</button>
+          </div>
+        </section>
+
+        <section class="grid-panel">
+          <div class="grid-toolbar">
+            <div class="name-box" id="activeCellName">A1</div>
+            <label class="formula-bar">
+              <span class="formula-prefix">fx</span>
+              <textarea
+                id="formulaBarInput"
+                class="formula-input"
+                rows="1"
+                spellcheck="false"
+                aria-label="Formula bar"
+              ></textarea>
+            </label>
+            <label class="quick-search">
+              <span class="quick-search-label">Search</span>
+              <input
+                id="globalSearchInput"
+                class="quick-search-input"
+                type="text"
+                autocomplete="off"
+                spellcheck="false"
+                aria-label="Global search"
+              />
+              <button id="clearGlobalSearchButton" class="quick-search-clear" type="button" aria-label="Clear global search">Clear</button>
+            </label>
+          </div>
+          <div id="printHeader" class="print-chrome" aria-hidden="true"></div>
+          <div class="grid-wrap">
+            <table id="sheetGrid" class="sheet-grid" aria-label="Spreadsheet grid"></table>
+          </div>
+          <div id="printFooter" class="print-chrome" aria-hidden="true"></div>
+        </section>
+
+        <div id="floatingLayer" class="floating-layer" aria-live="polite"></div>
+
+        <footer class="status-bar">
+          <p id="statusMessage" class="status-message">Blank sheet ready. Open a CWS HTML file or save a new empty one.</p>
+          <p id="documentSummary" class="document-summary">Unsaved blank sheet | DataSheet | 0 columns | 0 data rows</p>
+        </footer>
+      </main>
+    </div>
+
+    <script type="module" src="./src/main.js?v=20260619-2"></script>
+  </body>
+</html>
